@@ -1,0 +1,16 @@
+services:
+  userapi:
+    build:
+      context: D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment
+      dockerfile: UserAPI/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: userapi
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\sanjeevbaghel\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\sanjeevbaghel\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'
