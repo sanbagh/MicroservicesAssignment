@@ -3,15 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.19
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserAPI", "UserAPI\UserAPI.csproj", "{4F388E97-2C63-44C1-9CD9-977CC5A7C924}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserAPI", "UserAPI\UserAPI.csproj", "{4F388E97-2C63-44C1-9CD9-977CC5A7C924}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderAPI", "OrderAPI\OrderAPI.csproj", "{9D2D3AB8-966D-4A1C-9C89-2E577D97C05F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderAPI", "OrderAPI\OrderAPI.csproj", "{9D2D3AB8-966D-4A1C-9C89-2E577D97C05F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserOrderAggregator", "UserOrderAggregator\UserOrderAggregator.csproj", "{91D9E409-7D4C-4E1D-B283-11BEA82EA65D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserOrderAggregator", "UserOrderAggregator\UserOrderAggregator.csproj", "{91D9E409-7D4C-4E1D-B283-11BEA82EA65D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3E001FD7-BDD7-4761-B00F-8566A99456E3}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		sqlserver-secret.yml = sqlserver-secret.yml
 	EndProjectSection
 EndProject
 Global
