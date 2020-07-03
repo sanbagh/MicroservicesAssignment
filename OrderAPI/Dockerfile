@@ -10,6 +10,7 @@ COPY ["OrderAPI/OrderAPI.csproj", "OrderAPI/"]
 RUN dotnet restore "OrderAPI/OrderAPI.csproj"
 COPY . .
 WORKDIR "/src/OrderAPI"
+RUN find -type d -name bin -prune -exec rm -rf {} \; && find -type d -name obj -prune -exec rm -rf {} \;
 RUN dotnet build "OrderAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish

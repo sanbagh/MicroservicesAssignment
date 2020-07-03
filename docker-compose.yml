@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  userapi:
-    image: ${DOCKER_REGISTRY-}userapi
-    build:
-      context: .
-      dockerfile: UserAPI/Dockerfile

@@ -8,9 +8,11 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["UserAPI/UserAPI.csproj", "UserAPI/"]
-RUN dotnet restore "UserAPI/UserAPI.csproj"
+COPY UserAPI/nuget.config /src/nuget.config
+RUN dotnet restore "UserAPI/UserAPI.csproj" --configfile /src/nuget.config
 COPY . .
 WORKDIR "/src/UserAPI"
+RUN find -type d -name bin -prune -exec rm -rf {} \; && find -type d -name obj -prune -exec rm -rf {} \;
 RUN dotnet build "UserAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish

@@ -7,9 +7,11 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["UserOrderAggregator/UserOrderAggregator.csproj", "UserOrderAggregator/"]
-RUN dotnet restore "UserOrderAggregator/UserOrderAggregator.csproj"
+COPY UserOrderAggregator/nuget.config /src/nuget.config
+RUN dotnet restore "UserOrderAggregator/UserOrderAggregator.csproj" --configfile /src/nuget.config
 COPY . .
 WORKDIR "/src/UserOrderAggregator"
+RUN find -type d -name bin -prune -exec rm -rf {} \; && find -type d -name obj -prune -exec rm -rf {} \;
 RUN dotnet build "UserOrderAggregator.csproj" -c Release -o /app/build
 
 FROM build AS publish
