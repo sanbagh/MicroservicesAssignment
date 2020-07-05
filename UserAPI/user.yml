@@ -1,7 +1,7 @@
 ﻿apiVersion: v1
 kind: Service
 metadata:
-  name: sql-server
+  name: sql-server-service
   labels:
     app: sqlserver
 spec:
@@ -9,7 +9,6 @@ spec:
     - port: 1433
   selector:
     app: sqlserver
-  clusterIP: None
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -65,3 +64,50 @@ spec:
       - name: sqlserver-persistent-storage
         persistentVolumeClaim:
           claimName: sqlserver-pv-claim
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user
+  labels:
+    app: user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user
+  template:
+    metadata:
+      labels:
+        app: user
+    spec:
+      containers:
+      - name: user
+        image: sanbagh/userapi:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: DATABASE_SERVER
+          valueFrom: 
+            configMapKeyRef:
+              name: sqlserver-configmap
+              key: database_url
+        - name: SA_PASSWORD
+          valueFrom: 
+            secretKeyRef:
+              name: sqlserver-secret
+              key: sql-password
+        - name: ConnectionStrings__DefaultConnection
+          value: "server=$(DATABASE_SERVER);user id= sa; password=$(SA_PASSWORD)"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+spec:
+  selector:
+    app: user
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 80

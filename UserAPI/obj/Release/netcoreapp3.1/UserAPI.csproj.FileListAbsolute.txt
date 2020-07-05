@@ -27,7 +27,6 @@ D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\bin\Rele
 D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\obj\Release\netcoreapp3.1\UserAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\obj\Release\netcoreapp3.1\UserAPI.AssemblyInfoInputs.cache
 D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\obj\Release\netcoreapp3.1\UserAPI.AssemblyInfo.cs
 D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\obj\Release\netcoreapp3.1\UserAPI.RazorTargetAssemblyInfo.cache
@@ -38,3 +37,8 @@ D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\obj\Rele
 D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\obj\Release\netcoreapp3.1\UserAPI.pdb
 D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\bin\Release\netcoreapp3.1\Nuget.config
 D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\obj\Release\netcoreapp3.1\UserAPI.csprojAssemblyReference.cache
+D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\bin\Release\netcoreapp3.1\OpenTracing.dll
+D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\bin\Release\netcoreapp3.1\OpenTracing.Contrib.NetCore.dll
+D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\bin\Release\netcoreapp3.1\System.Data.SqlClient.dll
+D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Learning\Web Development\ASP.NET Core\MicroserviceAssignment\UserAPI\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

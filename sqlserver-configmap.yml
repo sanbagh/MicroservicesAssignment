@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sqlserver-configmap
+data:
+  database_url: sql-server-service
+  user_service: user-service
+  order_service: order-service
+  user_port: "5000"
+  order_port: "5300"

@@ -12,6 +12,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3E001FD7-BDD7-4761-B00F-8566A99456E3}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		Jaeger.yml = Jaeger.yml
+		sqlserver-configmap.yml = sqlserver-configmap.yml
 		sqlserver-secret.yml = sqlserver-secret.yml
 	EndProjectSection
 EndProject

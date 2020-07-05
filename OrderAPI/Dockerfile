@@ -7,7 +7,8 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["OrderAPI/OrderAPI.csproj", "OrderAPI/"]
-RUN dotnet restore "OrderAPI/OrderAPI.csproj"
+COPY OrderAPI/nuget.config /src/nuget.config
+RUN dotnet restore "OrderAPI/OrderAPI.csproj" --configfile /src/nuget.config --disable-parallel
 COPY . .
 WORKDIR "/src/OrderAPI"
 RUN find -type d -name bin -prune -exec rm -rf {} \; && find -type d -name obj -prune -exec rm -rf {} \;

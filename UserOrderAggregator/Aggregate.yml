@@ -19,6 +19,27 @@ spec:
         image: sanbagh/userorderaggregator:latest
         ports:
         - containerPort: 80
+        env:
+        - name: Values__userUrl
+          valueFrom: 
+            configMapKeyRef:
+              name: sqlserver-configmap
+              key: user_service
+        - name: Values__ordersUrl
+          valueFrom:
+            configMapKeyRef:
+              name: sqlserver-configmap
+              key: order_service
+        - name: Values__userport
+          valueFrom:
+            configMapKeyRef:
+              name: sqlserver-configmap
+              key: user_port
+        - name: Values__orderport
+          valueFrom:
+            configMapKeyRef:
+              name: sqlserver-configmap
+              key: order_port
 ---
 apiVersion: v1
 kind: Service
