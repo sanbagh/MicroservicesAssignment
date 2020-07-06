@@ -35,6 +35,11 @@ spec:
             configMapKeyRef:
               name: sqlserver-configmap
               key: user_port
+        - name: Values__jaeger-host
+          valueFrom: 
+            configMapKeyRef:
+              name: sqlserver-configmap
+              key: jaeger_host
         - name: Values__orderport
           valueFrom:
             configMapKeyRef:

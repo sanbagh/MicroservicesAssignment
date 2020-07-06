@@ -19,6 +19,12 @@ spec:
         image: sanbagh/orderapi:latest
         ports:
         - containerPort: 80
+        env:
+        - name: Values__jaeger-host
+          valueFrom: 
+            configMapKeyRef:
+              name: sqlserver-configmap
+              key: jaeger_host
 ---
 apiVersion: v1
 kind: Service

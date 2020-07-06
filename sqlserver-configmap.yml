@@ -4,6 +4,7 @@ metadata:
   name: sqlserver-configmap
 data:
   database_url: sql-server-service
+  jaeger_host: jaeger-agent
   user_service: user-service
   order_service: order-service
   user_port: "5000"

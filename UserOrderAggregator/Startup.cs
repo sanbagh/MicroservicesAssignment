@@ -4,7 +4,9 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Jaeger;
+using Jaeger.Reporters;
 using Jaeger.Samplers;
+using Jaeger.Senders.Thrift;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -33,15 +35,24 @@ namespace UserOrderAggregator
             services.AddScoped<IAggregatorService, AggregatorService>();
             services.AddSingleton<ITracer>(serviceProvider =>
             {
-                string serviceName = Assembly.GetEntryAssembly().GetName().Name;
+                string serviceName = serviceProvider.GetRequiredService<IWebHostEnvironment>().ApplicationName;
 
                 ILoggerFactory loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
 
                 ISampler sampler = new ConstSampler(sample: true);
 
+
+                string jaegerHost = Configuration.GetValue<string>("Values:jaeger-host");
+
+                var reporter = new RemoteReporter.Builder()
+                    .WithLoggerFactory(loggerFactory)
+                    .WithSender(new UdpSender(jaegerHost, 6831, 0)) // todo: 
+                    .Build();
+
                 ITracer tracer = new Tracer.Builder(serviceName)
                     .WithLoggerFactory(loggerFactory)
                     .WithSampler(sampler)
+                    .WithReporter(reporter)
                     .Build();
 
                 GlobalTracer.Register(tracer);

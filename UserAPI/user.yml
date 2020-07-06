@@ -97,6 +97,11 @@ spec:
             secretKeyRef:
               name: sqlserver-secret
               key: sql-password
+        - name: Values__jaeger-host
+          valueFrom: 
+            configMapKeyRef:
+              name: sqlserver-configmap
+              key: jaeger_host
         - name: ConnectionStrings__DefaultConnection
           value: "server=$(DATABASE_SERVER);user id= sa; password=$(SA_PASSWORD)"
 ---
